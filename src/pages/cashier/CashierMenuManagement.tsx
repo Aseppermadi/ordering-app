@@ -79,27 +79,9 @@ const mockMenuItems: MenuItem[] = [
     category: "Cemilan",
     isAvailable: false,
   },
-  {
-    id: "7",
-    name: "Es Krim Vanilla",
-    price: 15000,
-    description: "Es krim vanilla dengan topping coklat",
-    imageUrl: "/placeholder.svg?height=200&width=300",
-    category: "Dessert",
-    isAvailable: true,
-  },
-  {
-    id: "8",
-    name: "Puding Coklat",
-    price: 12000,
-    description: "Puding coklat dengan whipped cream",
-    imageUrl: "/placeholder.svg?height=200&width=300",
-    category: "Dessert",
-    isAvailable: true,
-  },
 ]
 
-const MenuManagement: React.FC = () => {
+const CashierMenuManagement: React.FC = () => {
   const [menuItems, setMenuItems] = useState<MenuItem[]>(mockMenuItems)
   const [isDialogOpen, setIsDialogOpen] = useState(false)
   const [editingItem, setEditingItem] = useState<MenuItem | null>(null)
@@ -210,7 +192,7 @@ const MenuManagement: React.FC = () => {
         {/* Header */}
         <div className="flex items-center justify-between mb-6">
           <div className="flex items-center gap-4">
-            <Link to="/owner/dashboard">
+            <Link to="/cashier/dashboard">
               <Button variant="ghost" size="icon">
                 <ArrowLeft className="h-5 w-5" />
               </Button>
@@ -424,4 +406,4 @@ const MenuManagement: React.FC = () => {
   )
 }
 
-export default MenuManagement
+export default CashierMenuManagement

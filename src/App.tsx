@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom"
-
+import { Toaster } from "@/components/ui/toaster"
 import { AuthProvider } from "./contexts/AuthContext"
 import { CartProvider } from "./contexts/CartContext"
 import { OrderProvider } from "./contexts/OrderContext"
@@ -14,6 +14,7 @@ import OrderStatus from "./pages/customer/OrderStatus"
 // Cashier Pages
 import CashierLogin from "./pages/cashier/CashierLogin"
 import CashierDashboard from "./pages/cashier/CashierDashboard"
+import CashierMenuManagement from "./pages/cashier/CashierMenuManagement"
 import OrderDetail from "./pages/cashier/OrderDetail"
 
 // Owner Pages
@@ -48,6 +49,14 @@ function App() {
                   element={
                     <ProtectedRoute role="cashier">
                       <CashierDashboard />
+                    </ProtectedRoute>
+                  }
+                />
+                <Route
+                  path="/cashier/menu"
+                  element={
+                    <ProtectedRoute role="cashier">
+                      <CashierMenuManagement />
                     </ProtectedRoute>
                   }
                 />
@@ -90,7 +99,7 @@ function App() {
                 {/* Redirect unknown routes */}
                 <Route path="*" element={<Navigate to="/" replace />} />
               </Routes>
-           
+              <Toaster />
             </div>
           </Router>
         </OrderProvider>
