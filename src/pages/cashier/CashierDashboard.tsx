@@ -3,7 +3,7 @@
 import type React from "react"
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
-import { Bell, Clock, CreditCard, LogOut, RefreshCw, Search, Users, TrendingUp, AlertCircle } from "lucide-react"
+import { Bell, Clock, CreditCard, LogOut, RefreshCw, Search, Users, TrendingUp, AlertCircle, Menu } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
@@ -171,6 +171,12 @@ const CashierDashboard: React.FC = () => {
             <Button variant="outline" size="icon" onClick={handleManualRefresh} disabled={isLoading}>
               <RefreshCw className={`h-4 w-4 ${isLoading ? "animate-spin" : ""}`} />
             </Button>
+            <Link to="/cashier/menu">
+              <Button variant="outline">
+                <Menu className="h-4 w-4 mr-2" />
+                Kelola Menu
+              </Button>
+            </Link>
             <Button variant="outline" size="icon">
               <Bell className="h-4 w-4" />
               {unpaidOrders.length > 0 && (
@@ -330,23 +336,14 @@ const CashierDashboard: React.FC = () => {
                           )}
                         </div>
 
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm text-gray-600 mb-3">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-gray-600 mb-3">
                           <div>
                             <span className="font-medium">Meja:</span> #{order.tableNumber}
                           </div>
                           <div>
                             <span className="font-medium">Waktu:</span> {timeAgo} menit lalu
                           </div>
-                          <div>
-                            <span className="font-medium">Pelanggan:</span> {order.customerName || "Guest"}
-                          </div>
                         </div>
-
-                        {order.customerPhone && (
-                          <div className="text-sm text-gray-600 mb-3">
-                            <span className="font-medium">Telepon:</span> {order.customerPhone}
-                          </div>
-                        )}
 
                         {order.notes && (
                           <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-3 mb-3">
@@ -414,12 +411,6 @@ const CashierDashboard: React.FC = () => {
                           Detail Lengkap
                         </Button>
                       </Link>
-
-                      {order.customerPhone && (
-                        <Button size="sm" variant="ghost" className="text-blue-600">
-                          Hubungi
-                        </Button>
-                      )}
                     </div>
                   </CardContent>
                 </Card>
