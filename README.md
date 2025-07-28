@@ -87,19 +87,6 @@ npm run dev
 4. Analisis data penjualan per periode
 5. Kelola akun kasir (fitur akan datang)
 
-## 🏗️ Struktur Project
-
-\`\`\`
-src/
-├── components/          # Komponen reusable
-├── contexts/           # React Context untuk state management
-├── pages/              # Halaman aplikasi
-│   ├── customer/       # Halaman untuk pelanggan
-│   ├── cashier/        # Halaman untuk kasir
-│   └── owner/          # Halaman untuk owner
-├── hooks/              # Custom hooks
-└── lib/                # Utilities dan helpers
-\`\`\`
 
 ## 🎨 Design System
 
